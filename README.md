@@ -5,7 +5,7 @@
 From the root of the project:
 
 ```bash
-javac -d target main/model/*.java main/catalog/*.java main/Main.java
+javac -d target main/model/*.java main/catalog/*.java main/cart/*.java main/Main.java
 ```
 
 ## How to Run

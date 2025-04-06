@@ -33,4 +33,17 @@ public class Product {
     public String toString() {
         return name + " - " + price + " PLN";
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Product other = (Product) obj;
+        return name.equals(other.name) && category == other.category && price == other.price;
+    }
+    
+    @Override
+    public int hashCode() {
+        return name.hashCode() + category.hashCode() + Double.hashCode(price);
+    }    
 }
