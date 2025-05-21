@@ -1,15 +1,19 @@
 package main.cart;
 
 import main.model.Product;
+import main.promotions.Promotion;
+import main.promotions.PromotionFactory;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class Cart {
     private Map<Product, Integer> items;
+    private Promotion activePromotion;
 
     public Cart() {
         this.items = new HashMap<>();
+        this.activePromotion = null;
     }
 
     public void addProduct(Product product) {
@@ -42,7 +46,20 @@ public class Cart {
         }
     }
 
+    public void setPromotionByCode(String code) {
+        if (PromotionFactory.isValidCode(code)) {
+            activePromotion = PromotionFactory.getPromotionByCode(code);
+            System.out.println("Promotion \"" + code + "\" applied.");
+        } else {
+            activePromotion = null;
+            System.out.println("Unknown promo code. No promotion applied.");
+        }
+    }
+
     public double getTotalPrice() {
+        if (activePromotion != null) {
+            return activePromotion.apply(items);
+        }
         return items.entrySet().stream()
                 .mapToDouble(e -> e.getKey().getPrice() * e.getValue())
                 .sum();

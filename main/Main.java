@@ -30,7 +30,19 @@ public class Main {
 
         cart.printContents();
 
-        System.out.printf("Total price: %.2f PLN%n", cart.getTotalPrice());
+        System.out.printf("No promotion: %.2f PLN%n", cart.getTotalPrice());
+
+        cart.setPromotionByCode("PROMO10");
+        System.out.printf("With PROMO10: %.2f PLN%n", cart.getTotalPrice());
+
+        cart.setPromotionByCode("3ZA2");
+        System.out.printf("With 3ZA2: %.2f PLN%n", cart.getTotalPrice());
+
+        cart.setPromotionByCode("2POL");
+        System.out.printf("With 2POL: %.2f PLN%n", cart.getTotalPrice());
+
+        cart.setPromotionByCode("INVALID");
+        System.out.printf("With INVALID code: %.2f PLN%n", cart.getTotalPrice());
 
         cart.removeProduct(backpack20L);
         cart.printContents();
