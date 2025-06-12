@@ -35,6 +35,10 @@ public class Cart {
         }
     }
 
+    public Map<Product, Integer> getProducts() {
+        return items;
+    }
+
     public void printContents() {
         if (items.isEmpty()) {
             System.out.println("Shopping cart is empty.");

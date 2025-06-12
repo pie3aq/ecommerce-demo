@@ -34,10 +34,9 @@ public class Catalog {
 
     }
 
-    public List<String> getAllProductsSortedByName() {
+    public List<Product> getAllProductsSortedByName() {
         return products.stream()
                 .sorted(Comparator.comparing(Product::getName))
-                .map(Product::toString)
                 .collect(Collectors.toList());
     }
 
