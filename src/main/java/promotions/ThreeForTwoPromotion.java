@@ -20,7 +20,7 @@ public class ThreeForTwoPromotion implements main.promotions.Promotion {
         int discountCount = allPrices.size() / 3;
 
         for (int i = 0; i < discountCount; i++) {
-            allPrices.set(i, 1.00);
+            allPrices.set(i, 0.0);
         }
 
         double total = allPrices.stream().mapToDouble(Double::doubleValue).sum();

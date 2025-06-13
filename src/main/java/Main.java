@@ -1,7 +1,7 @@
 package main;
 
-import main.catalog.Catalog;
 import main.cart.Cart;
+import main.catalog.Catalog;
 import main.model.Category;
 import main.model.Product;
 
